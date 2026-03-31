@@ -30,12 +30,14 @@ const FramePreview = forwardRef<HTMLDivElement, FramePreviewProps>(
               crossOrigin="anonymous"
             />
             <div style={{ marginTop: "20px", textAlign: "center" }}>
-              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#1a1a1a", fontWeight: 500 }}>
-                {metadata.camera}
+              <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "#1a1a1a", fontWeight: 400 }}>
+                Shot on <span style={{ fontWeight: 700 }}>{metadata.camera}</span>
               </p>
-              {metadata.date && (
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#888", marginTop: "4px" }}>
-                  {metadata.date}
+              {techString && (
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#888", marginTop: "6px" }}>
+                  {[metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : "", metadata.date]
+                    .filter(Boolean)
+                    .join("  |  ")}
                 </p>
               )}
             </div>
