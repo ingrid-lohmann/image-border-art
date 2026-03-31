@@ -11,7 +11,7 @@ const ClassicFrame = ({ imageUrl, metadata }: ClassicFrameProps) => {
     .join("  |  ");
 
   return (
-    <div style={{ padding: "32px 32px 80px 32px", backgroundColor: "#ffffff" }}>
+    <div style={{ padding: "20px 20px 32px 20px", backgroundColor: "#ffffff" }}>
       <img
         src={imageUrl}
         alt="photo"
