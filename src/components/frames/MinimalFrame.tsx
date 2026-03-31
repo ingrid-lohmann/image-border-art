@@ -11,7 +11,7 @@ const MinimalFrame = ({ imageUrl, metadata }: MinimalFrameProps) => {
     .join("  ·  ");
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "#ffffff" }}>
+    <div style={{ padding: "0 0 20px 0", backgroundColor: "#ffffff" }}>
       <img
         src={imageUrl}
         alt="photo"
