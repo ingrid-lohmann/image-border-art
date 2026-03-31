@@ -6,31 +6,104 @@ interface ModernFrameProps {
 }
 
 const ModernFrame = ({ imageUrl, metadata }: ModernFrameProps) => {
-  const techString = [metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : ""]
-    .filter(Boolean)
-    .join("  ·  ");
+  const metaItems = [
+    metadata.camera,
+    metadata.lens,
+    metadata.aperture,
+    metadata.shutter,
+    metadata.iso ? `ISO ${metadata.iso}` : "",
+    metadata.date,
+  ].filter(Boolean);
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "#ffffff" }}>
-      <img
-        src={imageUrl}
-        alt="photo"
-        style={{ display: "block", maxWidth: "100%", height: "auto" }}
-        crossOrigin="anonymous"
-      />
-      <div style={{ marginTop: "16px", textAlign: "center" }}>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "12px", color: "#1a1a1a", fontWeight: 600, letterSpacing: "0.04em" }}>
-          {metadata.camera}
-          {metadata.lens ? ` — ${metadata.lens}` : ""}
-        </p>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#888", marginTop: "4px", letterSpacing: "0.03em" }}>
-          {techString}
-        </p>
-        {metadata.date && (
-          <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", color: "#bbb", marginTop: "4px" }}>
-            {metadata.date}
-          </p>
-        )}
+    <div
+      style={{
+        padding: "40px",
+        backgroundColor: "#ffffff",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          borderRadius: "10px",
+          overflow: "hidden",
+          boxShadow:
+            "0 22px 70px 4px rgba(0, 0, 0, 0.28), 0 0 0 0.5px rgba(0, 0, 0, 0.12)",
+        }}
+      >
+        {/* Title Bar */}
+        <div
+          style={{
+            height: "38px",
+            background: "linear-gradient(180deg, #e8e6e8 0%, #d6d4d6 100%)",
+            display: "flex",
+            alignItems: "center",
+            paddingLeft: "12px",
+            paddingRight: "12px",
+            position: "relative",
+            borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+          }}
+        >
+          {/* Traffic Lights */}
+          <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+            <div
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                backgroundColor: "#ff5f57",
+                border: "0.5px solid rgba(0, 0, 0, 0.12)",
+              }}
+            />
+            <div
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                backgroundColor: "#febc2e",
+                border: "0.5px solid rgba(0, 0, 0, 0.12)",
+              }}
+            />
+            <div
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                backgroundColor: "#28c840",
+                border: "0.5px solid rgba(0, 0, 0, 0.12)",
+              }}
+            />
+          </div>
+
+          {/* Metadata in title bar */}
+          <div
+            style={{
+              flex: 1,
+              textAlign: "center",
+              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+              fontSize: "11px",
+              color: "#4a4a4a",
+              letterSpacing: "0.02em",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              paddingLeft: "12px",
+              paddingRight: "44px",
+            }}
+          >
+            {metaItems.join("  •  ")}
+          </div>
+        </div>
+
+        {/* Image */}
+        <img
+          src={imageUrl}
+          alt="photo"
+          style={{ display: "block", maxWidth: "100%", height: "auto" }}
+          crossOrigin="anonymous"
+        />
       </div>
     </div>
   );
