@@ -118,6 +118,8 @@ const Index = () => {
                       imageUrl={imageUrl}
                       metadata={metadata}
                       layout={layout}
+                      showMetadata={showModernMeta}
+                      showBorder={showModernBorder}
                     />
                   </div>
                 </div>
