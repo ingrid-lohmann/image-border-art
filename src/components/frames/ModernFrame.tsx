@@ -80,23 +80,25 @@ const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = tru
           </div>
 
           {/* Metadata in title bar */}
-          <div
-            style={{
-              flex: 1,
-              textAlign: "center",
-              fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-              fontSize: "11px",
-              color: "#4a4a4a",
-              letterSpacing: "0.02em",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              paddingLeft: "12px",
-              paddingRight: "44px",
-            }}
-          >
-            {metaItems.join("  •  ")}
-          </div>
+          {showMetadata && metaItems.length > 0 && (
+            <div
+              style={{
+                flex: 1,
+                textAlign: "center",
+                fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+                fontSize: "11px",
+                color: "#4a4a4a",
+                letterSpacing: "0.02em",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                paddingLeft: "12px",
+                paddingRight: "44px",
+              }}
+            >
+              {metaItems.join("  •  ")}
+            </div>
+          )}
         </div>
 
         {/* Image */}
