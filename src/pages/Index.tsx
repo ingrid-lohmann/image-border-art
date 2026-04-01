@@ -23,6 +23,8 @@ const Index = () => {
   const [metadata, setMetadata] = useState<PhotoMetadata>(defaultMeta);
   const [layout, setLayout] = useState<FrameLayout>("modern");
   const [exporting, setExporting] = useState(false);
+  const [showModernMeta, setShowModernMeta] = useState(true);
+  const [showModernBorder, setShowModernBorder] = useState(true);
   const frameRef = useRef<HTMLDivElement>(null);
 
   const handleImageLoad = useCallback(async (file: File, dataUrl: string) => {
