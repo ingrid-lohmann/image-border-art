@@ -104,14 +104,14 @@ const Index = () => {
               <Dropzone onImageLoad={handleImageLoad} />
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6 lg:gap-8">
               {/* Preview */}
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
+              <div className="space-y-4 sm:space-y-5">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                   <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Preview</h3>
                   <LayoutSelector selected={layout} onSelect={setLayout} />
                 </div>
-                <div className="flex justify-center rounded-xl bg-surface-elevated p-6 overflow-auto">
+                <div className="flex justify-center rounded-xl bg-surface-elevated p-3 sm:p-6 overflow-auto">
                   <div style={{ maxWidth: "100%" }}>
                     <FramePreview
                       ref={frameRef}
