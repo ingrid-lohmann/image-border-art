@@ -60,28 +60,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
-      <header className="border-b border-border px-6 py-4">
+      <header className="border-b border-border px-4 sm:px-6 py-3 sm:py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Sparkles className="w-5 h-5 text-primary" />
             <h1 className="text-lg font-semibold tracking-tight text-foreground">Framm</h1>
           </div>
           {imageUrl && (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
               >
                 <ImagePlus className="w-4 h-4" />
-                Nova foto
+                <span className="hidden sm:inline">Nova foto</span>
               </button>
               <button
                 onClick={handleExport}
                 disabled={exporting}
-                className="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-lg shadow-primary/20"
+                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-lg shadow-primary/20"
               >
                 <Download className="w-4 h-4" />
-                {exporting ? "Exportando..." : "Exportar"}
+                {exporting ? "..." : "Exportar"}
               </button>
             </div>
           )}
