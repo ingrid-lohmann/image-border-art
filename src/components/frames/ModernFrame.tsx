@@ -20,7 +20,7 @@ const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = tru
   return (
     <div
       style={{
-        padding: "40px",
+        padding: showBorder ? "40px" : "0",
         backgroundColor: "#ffffff",
         display: "flex",
         justifyContent: "center",
