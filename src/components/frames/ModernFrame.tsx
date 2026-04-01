@@ -25,6 +25,8 @@ const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = tru
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        maxWidth: "100%",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -33,6 +35,7 @@ const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = tru
           overflow: "hidden",
           boxShadow:
             "0 22px 70px 4px rgba(0, 0, 0, 0.28), 0 0 0 0.5px rgba(0, 0, 0, 0.12)",
+          maxWidth: "100%",
         }}
       >
         {/* Title Bar */}
