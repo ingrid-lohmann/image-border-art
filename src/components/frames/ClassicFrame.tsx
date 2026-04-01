@@ -6,7 +6,7 @@ interface ClassicFrameProps {
 }
 
 const ClassicFrame = ({ imageUrl, metadata }: ClassicFrameProps) => {
-  const techString = [metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : "", metadata.date]
+  const techString = [metadata.lens, metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : "", metadata.date]
     .filter(Boolean)
     .join("  |  ");
 
