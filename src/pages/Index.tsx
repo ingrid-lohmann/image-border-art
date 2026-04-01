@@ -60,28 +60,28 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
-      <header className="border-b border-border px-6 py-4">
+      <header className="border-b border-border px-4 sm:px-6 py-3 sm:py-4">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <Sparkles className="w-5 h-5 text-primary" />
             <h1 className="text-lg font-semibold tracking-tight text-foreground">Framm</h1>
           </div>
           {imageUrl && (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={handleReset}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium bg-muted text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
               >
                 <ImagePlus className="w-4 h-4" />
-                Nova foto
+                <span className="hidden sm:inline">Nova foto</span>
               </button>
               <button
                 onClick={handleExport}
                 disabled={exporting}
-                className="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-lg shadow-primary/20"
+                className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 shadow-lg shadow-primary/20"
               >
                 <Download className="w-4 h-4" />
-                {exporting ? "Exportando..." : "Exportar"}
+                {exporting ? "..." : "Exportar"}
               </button>
             </div>
           )}
@@ -89,10 +89,10 @@ const Index = () => {
       </header>
 
       {/* Main */}
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1 px-3 sm:px-6 py-4 sm:py-8">
         <div className="max-w-5xl mx-auto">
           {!imageUrl ? (
-            <div className="max-w-xl mx-auto mt-16">
+            <div className="max-w-xl mx-auto mt-8 sm:mt-16 px-2">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-semibold text-foreground mb-2">
                   Adicione molduras elegantes às suas fotos
@@ -104,14 +104,14 @@ const Index = () => {
               <Dropzone onImageLoad={handleImageLoad} />
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6 lg:gap-8">
               {/* Preview */}
-              <div className="space-y-5">
-                <div className="flex items-center justify-between">
+              <div className="space-y-4 sm:space-y-5">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                   <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Preview</h3>
                   <LayoutSelector selected={layout} onSelect={setLayout} />
                 </div>
-                <div className="flex justify-center rounded-xl bg-surface-elevated p-6 overflow-auto">
+                <div className="flex justify-center rounded-xl bg-surface-elevated p-3 sm:p-6 overflow-auto">
                   <div style={{ maxWidth: "100%" }}>
                     <FramePreview
                       ref={frameRef}
