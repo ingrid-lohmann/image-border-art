@@ -6,7 +6,7 @@ interface MinimalFrameProps {
 }
 
 const MinimalFrame = ({ imageUrl, metadata }: MinimalFrameProps) => {
-  const techString = [metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : ""]
+  const techString = [metadata.lens, metadata.aperture, metadata.shutter, metadata.iso ? `ISO ${metadata.iso}` : ""]
     .filter(Boolean)
     .join("  ·  ");
 
