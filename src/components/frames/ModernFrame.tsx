@@ -25,6 +25,8 @@ const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = tru
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        maxWidth: "100%",
+        boxSizing: "border-box",
       }}
     >
       <div
