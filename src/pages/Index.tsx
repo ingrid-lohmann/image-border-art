@@ -89,10 +89,10 @@ const Index = () => {
       </header>
 
       {/* Main */}
-      <main className="flex-1 px-6 py-8">
+      <main className="flex-1 px-3 sm:px-6 py-4 sm:py-8">
         <div className="max-w-5xl mx-auto">
           {!imageUrl ? (
-            <div className="max-w-xl mx-auto mt-16">
+            <div className="max-w-xl mx-auto mt-8 sm:mt-16 px-2">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-semibold text-foreground mb-2">
                   Adicione molduras elegantes às suas fotos
