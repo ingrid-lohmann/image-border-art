@@ -1,4 +1,6 @@
 import { useCallback, useRef, useState } from "react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { toPng } from "html-to-image";
 import { Download, ImagePlus, Sparkles } from "lucide-react";
 import Dropzone from "@/components/Dropzone";
@@ -21,6 +23,8 @@ const Index = () => {
   const [metadata, setMetadata] = useState<PhotoMetadata>(defaultMeta);
   const [layout, setLayout] = useState<FrameLayout>("modern");
   const [exporting, setExporting] = useState(false);
+  const [showModernMeta, setShowModernMeta] = useState(true);
+  const [showModernBorder, setShowModernBorder] = useState(true);
   const frameRef = useRef<HTMLDivElement>(null);
 
   const handleImageLoad = useCallback(async (file: File, dataUrl: string) => {
@@ -114,6 +118,8 @@ const Index = () => {
                       imageUrl={imageUrl}
                       metadata={metadata}
                       layout={layout}
+                      showMetadata={showModernMeta}
+                      showBorder={showModernBorder}
                     />
                   </div>
                 </div>
@@ -125,6 +131,20 @@ const Index = () => {
                 <div className="bg-card border border-border rounded-xl p-5">
                   <MetadataEditor metadata={metadata} onChange={setMetadata} />
                 </div>
+
+                {layout === "modern" && (
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-4">
+                    <h4 className="text-sm font-medium text-foreground">Opções do Moderno</h4>
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="show-meta" className="text-sm text-muted-foreground">Mostrar metadados</Label>
+                      <Switch id="show-meta" checked={showModernMeta} onCheckedChange={setShowModernMeta} />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="show-border" className="text-sm text-muted-foreground">Borda branca</Label>
+                      <Switch id="show-border" checked={showModernBorder} onCheckedChange={setShowModernBorder} />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

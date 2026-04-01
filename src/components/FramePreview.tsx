@@ -10,10 +10,12 @@ interface FramePreviewProps {
   imageUrl: string;
   metadata: PhotoMetadata;
   layout: FrameLayout;
+  showMetadata?: boolean;
+  showBorder?: boolean;
 }
 
 const FramePreview = forwardRef<HTMLDivElement, FramePreviewProps>(
-  ({ imageUrl, metadata, layout }, ref) => {
+  ({ imageUrl, metadata, layout, showMetadata, showBorder }, ref) => {
     return (
       <div
         ref={ref}
@@ -25,7 +27,7 @@ const FramePreview = forwardRef<HTMLDivElement, FramePreviewProps>(
         ) : layout === "minimal" ? (
           <MinimalFrame imageUrl={imageUrl} metadata={metadata} />
         ) : (
-          <ModernFrame imageUrl={imageUrl} metadata={metadata} />
+          <ModernFrame imageUrl={imageUrl} metadata={metadata} showMetadata={showMetadata} showBorder={showBorder} />
         )}
       </div>
     );
