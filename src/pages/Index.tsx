@@ -131,6 +131,20 @@ const Index = () => {
                 <div className="bg-card border border-border rounded-xl p-5">
                   <MetadataEditor metadata={metadata} onChange={setMetadata} />
                 </div>
+
+                {layout === "modern" && (
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-4">
+                    <h4 className="text-sm font-medium text-foreground">Opções do Moderno</h4>
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="show-meta" className="text-sm text-muted-foreground">Mostrar metadados</Label>
+                      <Switch id="show-meta" checked={showModernMeta} onCheckedChange={setShowModernMeta} />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <Label htmlFor="show-border" className="text-sm text-muted-foreground">Borda branca</Label>
+                      <Switch id="show-border" checked={showModernBorder} onCheckedChange={setShowModernBorder} />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}
