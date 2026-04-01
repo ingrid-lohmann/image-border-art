@@ -1,4 +1,6 @@
 import { useCallback, useRef, useState } from "react";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { toPng } from "html-to-image";
 import { Download, ImagePlus, Sparkles } from "lucide-react";
 import Dropzone from "@/components/Dropzone";

@@ -3,9 +3,11 @@ import type { PhotoMetadata } from "../MetadataEditor";
 interface ModernFrameProps {
   imageUrl: string;
   metadata: PhotoMetadata;
+  showMetadata?: boolean;
+  showBorder?: boolean;
 }
 
-const ModernFrame = ({ imageUrl, metadata }: ModernFrameProps) => {
+const ModernFrame = ({ imageUrl, metadata, showMetadata = true, showBorder = true }: ModernFrameProps) => {
   const metaItems = [
     metadata.camera,
     metadata.lens,
